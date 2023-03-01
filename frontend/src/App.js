@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+//import Search from "./Components/Search"
 
+import SearchPage from "./Components/MainPage/SearchPage"
+import { useState } from 'react';
+import AllDetails from './Components/MainPage/Alldetails';
+import Sidenav from './Components/MainPage/Navside';
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    {/* <Search/> */}
+    <SearchPage/>
+    <Sidenav/>
+    <AllDetails/>
+    
+    
+    
+    
+      
     </div>
   );
 }
