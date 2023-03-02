@@ -43,7 +43,7 @@ Router.get('/:key', async (req, res) => {
         }
     )
     res.send(result)
-    console.log(result)
+    // console.log(result)
     console.log(req.params.search)
 })
 
