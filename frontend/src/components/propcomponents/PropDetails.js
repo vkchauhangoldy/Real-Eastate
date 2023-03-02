@@ -121,7 +121,7 @@ const PropDetails = (props) => {
         </section>
 
         <section className="buttons" id="buttonsForPropertyDetails">
-          <Link to='/basic'>    <button onClick={handleClick} className="button1">Previous</button></Link>
+          <Link to='/'>    <button onClick={handleClick} className="button1">Previous</button></Link>
           <Link to='/geninfo'> <button onClick={handleClick} className="button2">Save & Continue</button></Link>
         </section>
       </form>
