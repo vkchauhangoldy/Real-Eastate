@@ -2,20 +2,9 @@ const express = require("express");
 const router = express.Router();
 const signuptemplate = require("../models/Login")
 const bcrypt = require("bcryptjs");
-
+const jwt = require("jsonwebtoken");//added
 
 router.post("/signup", async (req, res) => {
-    // const saltpassword= await bcrypt.genSalt(10);
-    // const securepassword= await bcrypt.hash(req.body.password, saltpassword)
-
-    // const signuser = new signuptemplate({
-    // email:req.body.email,
-    // password:securepassword,
-    // cpassword:securepassword
-
-
-    // })
-
     const { email, password, cpassword } = req.body;
     if (!email || !password || !cpassword) {
         res.status(422).json("Fill the details");
@@ -45,37 +34,31 @@ router.post("/signup", async (req, res) => {
 });
 
 
-//Login page fetching data
-router.post("/login", async (req, res) => {
-    const { email,password } = req.body;
-    if (!email || !password) {
-        res.status(422).json("Fill the in post login details");
-    }
+// sending the data of login page here
+router.post("/login", async (req, res) => {  // url in postman to check 4000/reg/login
     try {
+        let token;
+        const { email, password } = req.body;
+        if (!email || !password) {
+            res.status(422).json("Fill the Login details");
+        }
         // first email database second email user data enter mail
         const uservalid = await signuptemplate.findOne({ email: email });
-
         if (uservalid) {
-            const isfound = await bcrypt.compare(password, uservalid.password);
-            if (!isfound) {
+            const isMatch = await bcrypt.compare(password, uservalid.password);
+
+            token = await uservalid.genrateAuthtoken()
+              console.log(token)
+            if (!isMatch) {
                 res.status(422).json({ error: "Invalid credentials" })
             }
             else {
-                //token generate in shema 
-                const token = await uservalid.token_genrate();
-                 console.log(token);
 
-                // //cookie genrated
-                // res.cookie("usercookie", token, {
-                //     expires: new Date(Date.now() + 900000),
-                //     httpOnly: true
-                // });
-                // const result = {
-                //     uservalid,
-                //     token
-                // }
-                // res.status(201).json({ status: 201, result })
+                res.status(201).json("Login successfully in third page");
+
             }
+        } else {
+            res.status(422).json("Invalid form");
         }
 
     } catch (err) {
