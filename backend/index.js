@@ -8,7 +8,7 @@ Conn()
 // const Search1=require('./Router/Search')
 const User1=require('./Router/Property')
 
-const cors=require('cors')
+// const cors=require('cors')
 
 
 const bodyParser=require('body-parser')
