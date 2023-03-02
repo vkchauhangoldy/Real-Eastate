@@ -10,9 +10,10 @@ const basicInfo = new Schema({
     propertyAge: { type: Number, required: true },
     propertyApproved: { type: String, required: true },
     propertyDesc: { type: String, required: true },
+    bankLoan: { type: String, required: true },
 }, { timestamps: true })
 
-const bInfo = mongoose.model("sequenceData", basicInfo);
+const bInfo = mongoose.model("basicdetails", basicInfo);
 module.exports = bInfo;
 
 

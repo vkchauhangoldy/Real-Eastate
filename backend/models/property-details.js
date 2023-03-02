@@ -15,7 +15,7 @@ const proprtyDeatils = new Schema({
     lift:{ type: String, required: true },
     electrcity:{ type: String, required: true },
     facing:{ type: String, required: true } 
-})
+}, { timestamps: true })
 
-const pDetails = mongoose.model("sequenceData", proprtyDeatils)
+const pDetails = mongoose.model("proprtyDetails", proprtyDeatils)
 module.exports = pDetails;

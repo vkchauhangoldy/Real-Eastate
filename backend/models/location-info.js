@@ -10,7 +10,7 @@ const locateInfo = new Schema({
     landMark: { type: String, required: true },
     lattitude: { type: Number, required: true },
     longitude: { type: Number, required: true }
-})
+}, { timestamps: true })
 
-const LInfo = mongoose.model("sequenceData", locateInfo)
+const LInfo = mongoose.model("locationDetails", locateInfo)
 module.exports = LInfo;
