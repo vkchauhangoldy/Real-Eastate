@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+section{
+    
+    border: 1px solid black;
+    width: 50%;
+    margin: auto;
+}
+h1, p{
+    text-align: center;
+}
+input{
+width: 80%;
+margin:15px 50px;
+}
+.form_data{
+    display: inline-block;
+    
+}
+button{
+    background-color: rgb(153, 153, 245);
+    width: 80%;
+    margin:15px 50px;
+}
