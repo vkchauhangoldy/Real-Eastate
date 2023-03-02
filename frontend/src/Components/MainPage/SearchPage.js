@@ -8,7 +8,10 @@ const Search=()=>{
     const[search,setSearch]=useState("")
     const[searchData,setSearchData]=useState([])
     useEffect(()=>{
-        fetch(`http://localhost:3000/h1/key`).then((res)=>{
+        fetch(`http://localhost:8080/h1/home`,{
+            method:'POST',
+
+        }).then((res)=>{
            return res.json()
         }).then((data)=>{
             console.log(data)

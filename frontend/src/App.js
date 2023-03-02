@@ -5,11 +5,13 @@ import SearchPage from "./Components/MainPage/SearchPage"
 import { useState } from 'react';
 import AllDetails from './Components/MainPage/Alldetails';
 import Sidenav from './Components/MainPage/Navside';
+import UpperNav from './Components/MainPage/UpperNav';
 function App() {
   
   return (
     <div>
     {/* <Search/> */}
+    {/* <UpperNav/> */}
     <SearchPage/>
     <Sidenav/>
     <AllDetails/>
@@ -21,5 +23,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

@@ -1,0 +1,25 @@
+import React, { useState } from 'react';
+import { BsPerson, BsChevronDown } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
+
+
+const UpperNav = () => {
+    const navigate = useNavigate()
+    const [log, setLogout] = useState(false)
+
+    return (
+
+
+        <div className="upper-nav">
+            <p>USER ID</p>
+            <p className='account'>
+                <span>
+                    <span className='account-icon'><BsPerson/></span>
+                </span>
+            </p>
+        </div>
+
+    )
+}
+
+export default UpperNav
