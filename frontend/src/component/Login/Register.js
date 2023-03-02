@@ -38,7 +38,7 @@ const Register = () => {
         }
         else {
          //console.log("hello");
-            const data = await fetch("http://localhost:4000/register", {
+            const data = await fetch("http://localhost:4000/reg/signup", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -54,7 +54,8 @@ const Register = () => {
     }
         return (
             <>
-                <section>
+                <div className="sign-in-parent">
+                    
                     <div>
                         <h1>LOGO</h1>
                     </div>
@@ -74,7 +75,7 @@ const Register = () => {
                         </div>
 
                     </div>
-                </section>
+                </div>
 
                 <div>
                     <h3><NavLink to="/">Sign in</NavLink></h3>
