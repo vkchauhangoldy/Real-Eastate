@@ -1,0 +1,173 @@
+.formContainer {
+    position: absolute;
+    top: 35.5%;
+    right: 5%;
+    width: 70%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background: #FFFFFF;
+    border: 1px solid #f0dfdf;
+}
+
+.container {
+    height: 150%;
+    background: #F5F5F5;
+}
+
+
+#formContainerForPropertyDetails {
+    height: 110%;
+}
+
+#formContainerForGeneralInfo {
+    height: 59%;
+}
+
+.column {
+    display: grid;
+    gap: 8%;
+    width: 20%;
+    background-color: inherit;
+    padding: 2%;
+    flex-basis: 73%;
+}
+
+.WideInput {
+
+    width: 200%;
+    margin: 2%;
+    height: 120%;
+    padding-left: 2%;
+    border: 1px solid #C3C3C3;
+    border-radius: 8px;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 300px;
+    font-size: 18px;
+    line-height: 23px;
+    background-color: inherit;
+    color: #7D7D7D;
+
+}
+
+.WideLabel {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+    color: #7D7D7D;
+    background-color: inherit;
+}
+
+.inputSection {
+    background-color: inherit;
+
+    display: grid;
+    gap: 5%;
+}
+
+.buttons {
+
+    flex-direction: row;
+    background: #FFFFFF;
+    position: relative;
+    left: 40.88%;
+    top: 52.07%;
+    display: flex;
+    gap: 4%;
+    width: 37%;
+}
+
+button {
+    box-shadow: 0px 13px 25px rgba(214, 209, 209, 0.15);
+    background: #FFFFFF;
+
+    border-color: inherit;
+    background-color: inherit;
+
+    justify-content: center;
+    width: 120px;
+    height: 40px;
+    border-radius: 500px;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+#buttonsForPropertyDetails {
+    top: 25.07%;
+    background-color: inherit;
+    background: #FFFFFF;
+    margin-left: -500px;
+
+
+}
+
+#buttonsForGeneralInfo {
+    top: 47.07%;
+    background-color: inherit;
+    background: #FFFFFF;
+    margin-left: -500px;
+
+}
+
+#buttonsForBasicDetails {
+    top: 47.07%;
+    background-color: inherit;
+    background: #FFFFFF;
+    margin-left: -500px;
+}
+
+#buttonsForLocationInfo {
+    top: 47.07%;
+    background-color: inherit;
+    background: #FFFFFF;
+    margin-left: -500px;
+}
+
+.button1 {
+    background-color: inherit;
+    cursor: pointer;
+    background: #6AB4F8;
+}
+
+.button2 {
+    background-color: inherit;
+    cursor: pointer;
+    background: #4C57B6;
+}
+
+a {
+    text-decoration: none;
+}
+
+.image {
+    position: absolute;
+    left: 28w.31%;
+    right: 66.92%;
+    top: 78.93%;
+    bottom: 10.94%;
+    border: #6AB4F8;
+    border-radius: 46%;
+    background: #6AB4F8;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.13);
+}
+
+.vector {
+    background-image: url('./photo_camera.JPEG');
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 20.31%;
+    height: 40px;
+    width: 40px;
+    right: 69.82%;
+    top: 22%;
+}

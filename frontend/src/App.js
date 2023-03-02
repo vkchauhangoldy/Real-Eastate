@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+import BasicDetails from './components/propcomponents/BasicDetails';
+import GenInfo from './components/propcomponents/GenInfo';
+import LocateInfo from './components/propcomponents/LocateInfo';
+import PropDetails from './components/propcomponents/PropDetails';
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <BrowserRouter>
+        <Routes>
+            <Route path='/' element={<BasicDetails />} />
+            <Route path='/propdetails' element={<PropDetails/>} />
+            <Route path='/geninfo' element={<GenInfo/>} />
+            <Route path='/location' element={<LocateInfo/>} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  
   );
 }
 
