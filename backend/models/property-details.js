@@ -1,21 +1,56 @@
 const mongoose = require('mongoose')
-const Schema =mongoose.Schema
+const Schema = mongoose.Schema
 
 const proprtyDeatils = new Schema({
-    length: { type: Number, required: true},
-    width: { type: Number, required: true},
-    totalArea: { type: Number, required: true},
-    areaUnit: { type: String, required: true },
-    noOfBHK: { type: Number, required: true},
-    noOfFloor: { type: Number, required: true},
-    attached: { type: Number, required: true },
-    westernToilet: { type: String, required: true },
-    furnished:{ type: String, required: true },
-    carParking:{ type: String, required: true },
-    lift:{ type: String, required: true },
-    electrcity:{ type: String, required: true },
-    facing:{ type: String, required: true } 
-}, { timestamps: true })
+    length: {
+        type: Number,
+        required: true
+    },
+    width: {
+        type: Number,
+        required: true
+    },
+    totalArea: {
+        type: Number,
+        required: true
+    },
+    areaUnit: {
+        type: String
+    },
+    noOfBHK: {
+        type: Number
+    },
+    noOfFloor: {
+        type: Number
+    },
+    attached: {
+        type: Number
+    },
+    westernToilet: {
+        type: String
+    },
+    furnished: {
+        type: String
+    },
+    carParking: {
+        type: String
+    },
+    lift: {
+        type: String
+    },
+    electrcity: {
+        type: String
+    },
+    facing: {
+        type: String,
+        enum: ["east", "west", "north", "south"],
+        default: "north"
+    },
+    basicInfo: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'basicdetails'
+    }   
+})
 
-const pDetails = mongoose.model("proprtyDetails", proprtyDeatils)
+const pDetails = mongoose.model("proprtyDetail", proprtyDeatils)
 module.exports = pDetails;
