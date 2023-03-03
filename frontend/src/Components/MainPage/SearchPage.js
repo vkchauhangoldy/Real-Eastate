@@ -19,15 +19,15 @@ const Search=()=>{
     })
     },[])
     const searchhandle=()=>{
-        // if(search){
-        //     if(search){
-        //         let result= fetch(`http://localhost:3000/h1/key${search}`)
-        //         result= result.json()
-        //         searchData(result)
-        //         console.log(result)
-        //     }
+        if(search){
+            if(search){
+                let result= fetch(`http://localhost:8080/h1/:key${search}`)
+                result= result.json()
+                searchData(result)
+                console.log(result)
+            }
     
-        // }
+        }
     }
     return(
        <div className="dashboard">

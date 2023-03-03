@@ -1,3 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 100%;
+  font-family: "Source Sans Pro", sans-serif;
+}
+body {
+  background: #afeee1;
+  /* overflow:hidden; */
+}
+.home{
+  display: flex;
+  max-width: 100vw;
+  height: 100vh;
+}
+/* -------------------side-nav--------------------- */
+.side-nav {
+  width: 18vw;
+  background-color: #afeee1;
+  display: flex;
+  flex-direction: column;
+}
+.side-nav h1 {
+  text-align: center;
+  color: #1a1b1c;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.side-nav p {
+  margin: 1rem 0;
+  margin-left: 46px;
+  display: flex;
+  align-items: center;
+  color: #aaaaaa;
+}
+.side-nav p span {
+  padding-right: 3rem;
+  /* padding-right: 1rem; */
+}
+.blue {
+  color: #2289ff;
+}
+.display {
+  width: 82vw;
+  max-height: 99vh;
+}
+.upper-nav {
+  width: 100%;
+  height: 12%;
+  background-color: #f5f5f5;
+}
+.account {
+  width: 200px;
+  align-items: center;
+  cursor: pointer;
+}
+.account p{
+  /* border: 1px solid rebeccapurple; */
+  border-radius: 0 0 5px 5px;
+  position:absolute;
+  left: 83%;
+    top: 7%;
+    padding: 0.3em 3.9rem;
+  background: #ffffff;
+  color:#494d4c;
+  font-weight: 700;
+}
+.account .account-name{
+  padding: 0 0.5em 0.5em;
+}
+.logout-option{
+  margin-top: 0.5em;
+  width: 162px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  /* font-weight: 700; */
+  cursor: pointer;
+}
+.logout-option{
+  margin-top: 0.5eem;
+  /* width: 100%; */
+}
 .property-lists table {
     display: flex;
    justify-content: space-between;
@@ -15,7 +104,7 @@
  }
  .dashboard {
     width: 100%;
-     background-color: #f5f5f5;
+    background-color: #f5f5f5;
     margin-top: 0.1rem;
 
     text-align: center;
