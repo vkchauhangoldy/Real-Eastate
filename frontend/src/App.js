@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import BasicDetails from './components/addproperty/basic/BasicDetails';
+import GenInfo from './components/addproperty/general/GenInfo';
+import LocateInfo from './components/addproperty/location/LocateInfo';
+import PropDetails from './components/addproperty/property/PropDetails';
 
-import BasicDetails from './components/propcomponents/BasicDetails';
-import GenInfo from './components/propcomponents/GenInfo';
-import LocateInfo from './components/propcomponents/LocateInfo';
-import PropDetails from './components/propcomponents/PropDetails';
 
 
 
@@ -12,16 +12,18 @@ import PropDetails from './components/propcomponents/PropDetails';
 function App() {
   return (
     <>
-    <BrowserRouter>
+      {/* <idContext.Provider> */}
+      <BrowserRouter>
         <Routes>
-            <Route path='/' element={<BasicDetails />} />
-            <Route path='/propdetails' element={<PropDetails/>} />
-            <Route path='/geninfo' element={<GenInfo/>} />
-            <Route path='/location' element={<LocateInfo/>} />
+          <Route path='/' element={<BasicDetails />} />
+          <Route path='/prodetail' element={<PropDetails />} />
+          <Route path='/geninfo' element={<GenInfo />} />
+          <Route path='/location' element={<LocateInfo />} />
         </Routes>
       </BrowserRouter>
+      {/* </idContext.Provider> */}
     </>
-  
+
   );
 }
 
