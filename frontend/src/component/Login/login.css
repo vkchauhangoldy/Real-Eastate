@@ -1,37 +1,68 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+   
+    background-color: #E1F9F4;
 }
-.container{
-    width: 50%;
-    border: 1px solid black;
+.container1{
+    width: 40%;
+     height: 60vh;
     margin: auto;
-    margin-top: 130px;
+    margin-top: 100px;
+    background-color: white;
+    border-radius: 2px;
 }
-h1, p{
+.heading{
     text-align: center;
-    margin: 15px;
+    margin: 15px 0;
+    color: rgb(153, 153, 239);
+    background-color: white;
+    padding-top: 20px;
+}
+p{
+    text-align: center;
+    margin: 20px 0;
+    background-color: white;
+}
+h3{
+    text-decoration: none;
+    background-color: white;
 }
 .form_data{
-    margin: 20px;
+    
+    background-color: white;
 }
 
-input, .btn{
+
+input{
+    border: 1px solid black;
     width: 70%;
     padding: 15px;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-left: 110px;
+    background-color: white;
+    border-radius: 1px
 }
-input:hover{
-    border: 1px solid blue;
+button{
+    background-color: white;
+    
 }
+
 .btn{
 background-color: rgb(105, 105, 239);
 color: white;
-font-size: 20px;
+font-size: 15px;
+padding: 15px;
+border-radius: 1px
 }
-h3, button{
+h3{
     text-align: center;
-    padding: 20px;
+    /* padding: 20px; */
+    background-color: white;
+}
+.sig{
+    background-color: white;
+}
+.signup{
+    background-color: #E1F9F4;
 }

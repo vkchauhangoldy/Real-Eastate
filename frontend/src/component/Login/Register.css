@@ -2,26 +2,41 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #E1F9F4;
 }
-section{
-    
-    border: 1px solid black;
-    width: 50%;
+.container{
+    width: 40%;
+     height: 65vh;
     margin: auto;
+    margin-top: 100px;
+    background-color: white;
+    border-radius: 2px;
 }
+
 h1, p{
     text-align: center;
 }
 input{
 width: 80%;
 margin:15px 50px;
+border-radius: 2px;
 }
-.form_data{
+.form_data_signup{
+    margin-bottom: 50px;
     display: inline-block;
+    background-color: white;
     
 }
 button{
     background-color: rgb(153, 153, 245);
     width: 80%;
     margin:15px 50px;
+    margin-bottom: 20px;
+    
+} 
+.log{
+    background-color: #E1F9F4;
+    padding: 25px;
 }
+
+
