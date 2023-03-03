@@ -41,7 +41,7 @@ const AllDetails = () => {
                     return(
                         <tr key={index}>
                                     
-                            <td>{`PPD${+ppid+1000}`}</td>
+                            <td>{`PPD ${+ppid+1000}`}</td>
                             <td className="gray-color"><MdPhotoLibrary /></td>
                             <td>{val.property}</td>
                             <td>{val.contact}</td>
@@ -50,7 +50,7 @@ const AllDetails = () => {
                             <td>{val.daysleft}</td>
                             <td>{val.status}</td>
                             <td><button className="action-btn" 
-                                            onClick={()=>{updateStatus(list)}}>
+                                            onClick={()=>{updateList(list)}}>
                                                 {val.status}
                                             </button></td>
                                             <td>{parseInt(Math.random() *90 + 10)}</td>
