@@ -1,39 +1,40 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const locateInfo = new Schema({
+const locationInfoSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true
     },
     city: {
         type: String,
+        enum: ["Lucknow", "Chennai", "Bangalore", "Delhi"],
         required: true
     },
     area: {
-        type: String
+        type: String,
     },
     pincode: {
         type: Number,
-        required: true
     },
     address: {
+        type: String,
+    },
+    landmark: {
         type: String
     },
-    landMark: {
+    latitude: {
         type: String
-    },
-    lattitude: {
-        type: Number
     },
     longitude: {
-        type: Number
+        type: String
     },
     generalInfo: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'generalInfo'
+        ref: "generals",
     }
 })
 
-const LInfo = mongoose.model("locationDetail", locateInfo)
+
+const LInfo = mongoose.model("locations", locationInfoSchema)
 module.exports = LInfo;

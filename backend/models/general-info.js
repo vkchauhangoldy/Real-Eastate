@@ -1,35 +1,41 @@
 const mongoose = require('mongoose');
 
-const genInfo = new mongoose.Schema({
-    name: {
+const generalInfoScehma = new mongoose.Schema({
+    username: {
         type: String,
-        required: true
+        required: true,
     },
     mobile: {
         type: Number,
-        required: true
+        required: true,
+        minLength: 10,
+        maxLength: 12,
     },
     postedby: {
         type: String,
         enum: ["dealer", "owner"],
         default: "owner"
     },
-    saleType: {
+    saletype: {
         type: String
     },
-    featuredPackage: {
+    feature: {
         type: String,
-        enum: ["pool", "gym", "playground"],
-        default: "pool"
+        enum: ["gym", "pool", "garden", "auditorium"],
+        default: "gym"
     },
-    ppdPackage: {
+    PPDpackage: {
         type: String,
     },
-    propertyDetails: {
+    image: {
+        type: String,
+        required: true
+    },
+    propertyInfo: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'proprtyDetails'
+        ref: "properties",
     }
-})
 
-const gInfo = mongoose.model("generalInfo", genInfo)
+})
+const gInfo = mongoose.model("generals", generalInfoScehma)
 module.exports = gInfo;

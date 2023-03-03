@@ -1,35 +1,42 @@
 const mongoose = require('mongoose');
 
-const basicInfo = new mongoose.Schema({
-    propertyType: {
+const basicInfoSchema = new mongoose.Schema({
+    property: {
         type: String,
+        enum: ["plot", "house", "flat"],
         required: true
     },
     negotable: {
-        type: String
+        type: String,
+        enum: ["yes", "no"],
+        default: "yes"
     },
     price: {
         type: Number,
-        required: true
     },
     ownership: {
-        type: String
+        type: String,
+        enum: ["dealer", "self"],
+        default: "self"
     },
     propertyAge: {
-        type: Number
+        type: Number,
     },
     propertyApproved: {
-        type: String
+        type: String,
+        enum: ["yes", "no"],
+        default: "yes"
     },
     propertyDesc: {
-        type: String
+        type: String,
     },
     bankLoan: {
         type: String,
-        required: true
+        enum: ["yes", "no"],
+        default: "no"
     }
-})
+},{ timestamps: true })
 
-const bInfo = mongoose.model("basicdetail", basicInfo);
+const bInfo = mongoose.model("basicinfos", basicInfoSchema);
 module.exports = bInfo;
 
