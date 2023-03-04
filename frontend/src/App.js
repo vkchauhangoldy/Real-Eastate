@@ -1,25 +1,19 @@
 import './App.css';
 //import Search from "./Components/Search"
-
-import SearchPage from "./Components/MainPage/SearchPage"
-import { useState } from 'react';
-import AllDetails from './Components/MainPage/Alldetails';
-import Sidenav from './Components/MainPage/Navside';
+import React from 'react';
+// import SearchPage from "./Components/MainPage/SearchPage"
+// import { useState } from 'react';
+import Home from './Components/MainPage/Home';
 function App() {
   
   return (
     <div>
-    {/* <Search/> */}
-    <SearchPage/>
-    <Sidenav/>
-    <AllDetails/>
-    
-    
-    
-    
-      
+     {/* <UpperNav/>  */}
+     <Home/>
+   {/* <h1>HiEye</h1> */}
     </div>
   );
 }
+
 
 export default App;

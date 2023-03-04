@@ -1,15 +1,15 @@
 const express=require('express')
 const app=express()
+
 const mongoose=require('mongoose')
 
-const router=express.Router()
 const Conn=require('./Connection/conn')
 Conn()
-// const User=require('./Router/User')
-// const Search1=require('./Router/Search')
+// const User=require('./app/User')
+// const Search1=require('./app/Search')
 const User1=require('./Router/Property')
 
-// const cors=require('cors')
+ const cors=require('cors')
 
 
 const bodyParser=require('body-parser')
@@ -27,7 +27,7 @@ app.get('/',(req,res)=>{
 // app.use('/',User)
 app.use('/h1',User1)
 // app.use('/h2',Search1)
-// app.post('/basic',(req,res) => {
+// // app.post('/basic',(req,res) => {
     
 //    res.send(req.body)
 //     console.log(req.body);
@@ -42,21 +42,15 @@ app.use('/h1',User1)
 //     res.send(req.body)
 //      console.log(req.body);
 //  })
- app.post('/property',(req,res) => {
+//  app.post('/property',(req,res) => {
     
-     res.send(req.body)
-      console.log(req.body);
- })
+//      res.send(req.body)
+//       console.log(req.body);
+//  })
 
 // const app=express()
 
-const Router=require('./Router/user')
-
-app.get("/",(req,res)=>{
-    res.send("Hi")
-})
-
-app.use(express.json())
 
 
-app.listen(3000,console.log("server is up at 3000"))
+app.listen(8080,console.log("server is up at 8080"))
+
