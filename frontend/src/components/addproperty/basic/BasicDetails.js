@@ -1,13 +1,10 @@
-import { useContext, useState } from "react";
+import {  useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { idContext } from "../../context/idcontext";
 
-
+import Sidebar from '../../sidebar/Sidebar'
 import "./basic.css";
-const BasicDetails = () => {
 
-    const basicContext = useContext(idContext);
-    // console.log(basicContext);
+const BasicDetails = () => {
 
     const navigate = useNavigate();
 
@@ -27,6 +24,7 @@ const BasicDetails = () => {
         setFormValues({ ...formValues, [name]: value });
     };
 
+    //to clear the input
     const handleClear = () => {
         setFormValues({
             property: "plot",
@@ -41,6 +39,7 @@ const BasicDetails = () => {
     }
 
     const handleSubmit = async (event) => {
+        const basicData = { ...formValues };
         event.preventDefault();
 
         await fetch('http://localhost:2023/api/basic', {
@@ -48,13 +47,12 @@ const BasicDetails = () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(formValues),
+            body: JSON.stringify(basicData),
         }).then(res => {
             return res.json();
-        }).then(data => {
-            // console.log(data);
-            // basicContext.setbasicid(data.basicdetails._id);
-            // debugger
+        }).then((data) => {
+            console.log(data);
+
             navigate("/prodetail")
         }).catch(e => {
             console.log(e)
@@ -64,9 +62,7 @@ const BasicDetails = () => {
     return (
 
         <>
-          {/* <Header/>
-            <Sidebar/>
-           */}
+            <Sidebar />
             <h3>ADD NEW PROPERTY</h3>
             <div className="basic-info-row">
                 <ul className="basic-ul-row">
@@ -147,6 +143,7 @@ const BasicDetails = () => {
                         </div>
                         <div>
                             <button type="submit">Save & continue</button>
+                            {/* <button type="submit" onClick={nextPage}>Save & continue</button> */}
                         </div>
 
                     </div>

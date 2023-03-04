@@ -1,15 +1,16 @@
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { idContext } from "../../context/idcontext";
+
+import Sidebar from '../../sidebar/Sidebar'
 
 import "./general.css";
 
 const GenInfo = () => {
     const navigate = useNavigate();
 
-    const generalContext = useContext(idContext);
-
-    let propertyInfo1 = generalContext.propertyid;
+    function lastPage() {
+        navigate("/prodetail");
+    }
 
     const [username, setUsername] = useState("");
     const [mobile, setMobile] = useState("");
@@ -17,62 +18,46 @@ const GenInfo = () => {
     const [saletype, setSaleType] = useState("");
     const [feature, setFeature] = useState("");
     const [PPDpackage, setPPDPackage] = useState("");
-    const [image, setImage] = useState(null);
-    const [propertyInfo, setpropertyInfo] = useState("");
 
-    useEffect(() => {
-        setpropertyInfo(propertyInfo1)
-    }, [])
-
-
-    const handleClear = () => {
-        setUsername("")
-        setMobile("")
-        setPostedBy("owner")
-        setSaleType("")
-        setFeature("")
-        setPPDPackage("")
-        setImage(null)
-    }
-
-
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        const formData = new FormData();
-        formData.append("username", username);
-        formData.append("mobile", mobile);
-        formData.append("postedby", postedby);
-        formData.append("saletype", saletype);
-        formData.append("feature", feature);
-        formData.append("PPDpackage", PPDpackage);
-        formData.append("image", image);
-        formData.append("propertyInfo", propertyInfo);
+        const genData = new FormData();
+        genData.append("username", username);
+        genData.append("mobile", mobile);
+        genData.append("postedby", postedby);
+        genData.append("saletype", saletype);
+        genData.append("feature", feature);
+        genData.append("PPDpackage", PPDpackage);
 
-        fetch("http://localhost:2023/api/general", {
+
+        await fetch('http://localhost:2023/api/general', {
             method: "POST",
-            body: formData,
-        }).then((response) => {
-            return response.json()
-        }).then((data) => {
-            // console.log(data, "generalinfo");
-            generalContext.setgeneralid(data.generaldetails._id);
-            navigate("/locationinfo")
-        }).catch((error) => {
-            console.error(error);
-        });
+            
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(genData),
+        })
+            .then((response) => {
+                return response.json()
+            }).then((data) => {
+                console.log(data);
+                navigate("/location")
+            }).catch((error) => {
+                console.error(error);
+            });
     };
 
     return (
         <>
-            {/* <Header />
-            <Sidebar /> */}
+            <Sidebar/>
             <div className="general-info-row">
                 <h3>ADD NEW PROPERTY</h3>
                 <ul className="general-ul-row">
-                    <li>Basic info</li>
-                    <li >Property Details</li>
-                    <li className="general-li">General Info</li>
-                    <li>Location Info</li>
+                    <li>1.Basic info</li>
+                    <li >2.Property Details</li>
+                    <li className="general-li">3.General Info</li>
+                    <li>4.Location Info</li>
                 </ul>
             </div>
             <div className="general-form-container">
@@ -95,8 +80,6 @@ const GenInfo = () => {
                                     value={mobile}
                                     onChange={(event) => setMobile(event.target.value)}
                                     required
-                                    minLength="10"
-                                    maxLength="12"
                                 />
                             </label>
                         </div>
@@ -117,7 +100,7 @@ const GenInfo = () => {
                                     type="text"
                                     value={saletype}
                                     onChange={(event) => setSaleType(event.target.value)}
-                                    placeholder="eg. transaction, loan,etc.."
+                                    placeholder=" loan,etc.."
                                 />
                             </label>
                         </div>
@@ -130,7 +113,7 @@ const GenInfo = () => {
                                     <option value="gym">Gym</option>
                                     <option value="pool">Pool</option>
                                     <option value="garden">Garden</option>
-                                    <option value="auditorium">Auditorium</option>
+
                                 </select>
                             </label>
 
@@ -143,17 +126,10 @@ const GenInfo = () => {
                                 />
                             </label>
                         </div>
-                        <div>
-                            <label>
-                                Image <span style={{ color: "red" }}>*</span>:
-                                <input type="file"
-                                    accept=".jpeg, .jpg, .png, .mp4"
-                                    onChange={(event) => setImage(event.target.files[0])} required />
-                            </label>
-                        </div>
+
                         <div className="general-btn">
                             <div>
-                                <button onChange={handleClear}>Clear</button>
+                                <button onClick={lastPage}>Previous</button>
                             </div>
                             <div>
                                 <button type="submit">save & continue </button>
@@ -166,5 +142,4 @@ const GenInfo = () => {
         </>
     );
 };
-
 export default GenInfo;

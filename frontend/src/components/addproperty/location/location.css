@@ -22,7 +22,7 @@
     display: flex;
     list-style: none;
     justify-content: space-around;
-    border: 2px solid grey;
+    border: 1px solid grey;
     border-radius: 20px;
     align-items: center;
     margin-left: 30%;
@@ -31,7 +31,7 @@
 .location-li {
     color: white;
     background-color: #6AB4F8;
-    padding: 20px 10px;
+    padding: 10px;
     border-radius: 20px 20px 20px 20px;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .location-form-container {
-    background-color: #d5f4ef;
+    background-color: #f5f7f0;
     padding: 20px;
 }
 
@@ -75,11 +75,27 @@
 
 }
 
-.location-form-flexbox input,
-.location-form-flexbox select,
-.location-form-flexbox textarea {
+.location-form-flexbox input{
     width: 100%;
     padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.location-form-flexbox select{
+    width: 108%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.location-form-flexbox textarea {
+    width: 107%;
+    /* padding: 10px; */
     border-radius: 5px;
     border: none;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);

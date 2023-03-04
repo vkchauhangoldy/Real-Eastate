@@ -1,16 +1,18 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { idContext } from "../../context/idcontext";
 
+import Sidebar from '../../sidebar/Sidebar'
 import "./property.css"
+
 const PropDetails = () => {
 
-  const propertyContext = useContext(idContext);
-  let basicInfo = propertyContext.basicid;
-  // console.log(basicInfo)
-
-
   const navigate = useNavigate()
+
+  function lastPage() {
+    navigate("/");
+  }
+  
+
   const [propertyData, setPropertyData] = useState({
     length: "",
     breadth: "",
@@ -26,23 +28,7 @@ const PropDetails = () => {
     electricity: "",
     facing: "east",
   });
-  const handleClear = () => {
-    setPropertyData({
-      length: "",
-      breadth: "",
-      totalArea: "",
-      areaUnit: "sqm",
-      bhk: "",
-      floor: "",
-      attached: "yes",
-      westernToilet: "yes",
-      furnished: "no",
-      parking: "no",
-      lift: "no",
-      electricity: "",
-      facing: "east",
-    })
-  }
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -50,43 +36,37 @@ const PropDetails = () => {
   };
 
   const handleSubmit = async (event) => {
-    const dataToSend = { ...propertyData, basicInfo };
+    const propData = { ...propertyData };
     event.preventDefault();
-    // console.log(propertyData);
-    await fetch('mongodb://localhost:27017/propdetails', {
+
+    await fetch('http://localhost:2023/api/property', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(dataToSend),
+      body: JSON.stringify(propData),
     }).then(res => {
       return res.json();
-    }).then(data => {
-      // console.log(data);
-      propertyContext.setpropertyid(data.propertydetails._id);
-      // debugger
-      navigate("/generalinfo");
+    }).then((data) => {
+      console.log(data);
+      // verifying
+      navigate("/geninfo");
     }).catch(e => {
       console.log(e)
     })
-
-
-
-
   };
 
   return (
     <>
-      {/* <Header />
-      <Sidebar /> */}
-    
+
+      <Sidebar />
       <div className="property-info-row">
         <h3>ADD NEW PROPERTY</h3>
         <ul className="property-ul-row">
-          <li >Basic info</li>
-          <li className="property-li">Property Details</li>
-          <li>General Info</li>
-          <li>Location Info</li>
+          <li >1.Basic info</li>
+          <li className="property-li">2.Property Details</li>
+          <li>3.General Info</li>
+          <li>4.Location Info</li>
         </ul>
       </div>
       <div className="property-form-container">
@@ -204,7 +184,7 @@ const PropDetails = () => {
                   name="electricity"
                   value={propertyData.electricity}
                   onChange={handleInputChange}
-                  placeholder="eg. 3 phase"
+                  placeholder="example"
                 />
               </label>
             </div>
@@ -222,10 +202,12 @@ const PropDetails = () => {
             <div></div>
             <div className="property-btn">
               <div>
-                <button onChange={handleClear}>Clear</button>
+                {/* <button onChange={handleClear}>Previous</button> */}
+                <button onClick={lastPage}>Previous</button>
               </div>
               <div>
                 <button type="submit">Save & continue</button>
+                {/* <button type="submit" onClick={nextPage}>Save & continue</button> */}
               </div>
             </div>
           </div>

@@ -3,17 +3,19 @@
     display: flex;
     list-style: none;
     justify-content: space-around;
-    border: 2px solid grey;
+    border: 1px solid grey;
     border-radius: 20px;
     align-items: center;
     margin-left: 29.8%;
     margin-bottom: 8px;
 }
-
+.property-ul-row li{
+    font-size: 20px;
+}
 .property-li {
     color: white;
     background-color: #6AB4F8;
-    padding: 20px 10px;
+    padding: 10px;
     border-radius: 20px 20px 20px 20px;
 }
 
@@ -23,7 +25,7 @@
     font-family: sans-serif;
     color: #1b1a1a;
     font-size: small;
-    background-color: #d5f4ef;
+    background-color: #f5f7f0;
     padding: 20px;
     margin-left: 30%;
     margin-top: 20px;
