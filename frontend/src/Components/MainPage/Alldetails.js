@@ -8,7 +8,7 @@ const AllDetails = () => {
     const[list,updateList]=useState([])
     
     const getPropertyList = async () => {
-        const result = await fetch("https://localhost:8080/properties")
+        const result = await fetch("https://localhost:8080/home")
         const allData = await result.json()
         console.log(allData)
         updateList(allData)
@@ -21,7 +21,7 @@ const AllDetails = () => {
     const searchHandel = async (event) => {
         let key = event.target.value
         if (key) {
-            let result = await fetch(`https://localhost:8080/search/${key}`)
+            let result = await fetch(`http://localhost:8080/search/${key}`)
             result = await result.json()
             updateList(result)
             console.log(result)
