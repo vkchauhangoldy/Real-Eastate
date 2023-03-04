@@ -56,15 +56,9 @@ router.post('/api/property', async (req, res) => {
 });
 
 // post for general information
-router.post('/api/general', upload, async (req, res) => {
+router.post('/api/general', async (req, res) => {
     try {
-        // const { image } = req.file
-        let generaldetails = await GenInfo.create(req.body
-            // {
-            //     ...req.body,
-            //     image: req.file.filename
-            // }
-        )
+        let generaldetails = await GenInfo.create(req.body)
         return res.status(200).json({
             status: "general info added sucessfully",
             generaldetails
@@ -77,6 +71,7 @@ router.post('/api/general', upload, async (req, res) => {
         });
     }
 });
+
 
 // post for location information
 router.post('/api/location', async (req, res) => {

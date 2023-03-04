@@ -3,13 +3,12 @@ const mongoose = require('mongoose');
 const generalInfoScehma = new mongoose.Schema({
     username: {
         type: String,
-        required: true,
+        required: true
     },
     mobile: {
         type: Number,
-        required: true,
-        minLength: 10,
-        maxLength: 12,
+        required: true
+       
     },
     postedby: {
         type: String,
@@ -21,19 +20,16 @@ const generalInfoScehma = new mongoose.Schema({
     },
     feature: {
         type: String,
-        enum: ["gym", "pool", "garden", "auditorium"],
+        enum: ["gym", "pool", "garden"],
         default: "gym"
     },
     PPDpackage: {
-        type: String,
+        type: String
     },
-    image: {
-        type: String,
-        required: true
-    },
+   
     propertyInfo: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "properties",
+        ref: "properties"
     }
 
 })
