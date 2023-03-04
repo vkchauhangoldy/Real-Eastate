@@ -1,5 +1,5 @@
 import React from 'react';
-import { json } from 'react-router-dom';
+// import { json } from 'react-router-dom';
 import "./Alldetails.css"
 import UpperNav from './UpperNav';
 import AllDetails from './Alldetails';
@@ -22,7 +22,7 @@ const Home=()=>{
             </div>
             <div className="display">
                 <UpperNav/>
-               {/* <AllDetails/>  */}
+               <AllDetails/> 
             </div>
 
         </div>

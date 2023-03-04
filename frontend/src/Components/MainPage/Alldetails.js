@@ -2,16 +2,22 @@ import React, { useState ,useEffect} from "react";
 import { HiSearch } from "react-icons/hi";
 import { MdPhotoLibrary, MdModeEdit } from "react-icons/md";
 import { HiEye } from "react-icons/hi";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./Alldetails.css"
 const AllDetails = () => {
     const[list,updateList]=useState([])
-    
-    const getPropertyList = async () => {
-        const result = await fetch("https://localhost:8080/home")
-        const allData = await result.json()
-        console.log(allData)
-        updateList(allData)
+    debugger
+    async function getPropertyList(){
+      fetch("http://localhost:8080/home",{
+            method:"Post",
+            headers: {
+                "content-type": "application/json"
+            }
+        }).then((res)=>{return res.json})
+        .then((data)=>{
+            console.log(data)
+        })
+
     }
     // getPropertyList()
     useEffect(() => {
@@ -19,16 +25,16 @@ const AllDetails = () => {
         // updateStatus()
     },[])
     const searchHandel = async (event) => {
-        let key = event.target.value
-        if (key) {
-            let result = await fetch(`http://localhost:8080/search/${key}`)
-            result = await result.json()
-            updateList(result)
-            console.log(result)
-        }
-        else {
-            getPropertyList()
-        }
+        // let key = event.target.value
+        // if (key) {
+        //     let result = await fetch(`http://localhost:8080/search/${key}`)
+        //     result = await result.json()
+        //     updateList(result)
+        //     console.log(result)
+        // }
+        // else {
+        //     getPropertyList()
+        // }
     }
     return (
         <div className="dashboard">
@@ -37,10 +43,10 @@ const AllDetails = () => {
                     <input className="search-input" type="text" placeholder="search PPD ID" onChange={searchHandel} />
                     <span className="border-left-line" onClick={searchHandel}><HiSearch className='search-icon' /></span>
                 </span>
-             <Link to={"/basic"}>
-                style={{textDecoration:"none"}}
+             {/* <Link to={"/basic"}>
+                style={{textDecoration:"none"}} */}
                 <button className="add-btn">+ Add Property</button>
-                </Link>
+                {/* </Link> */}
             </div>
         <div className="property-lists">
             <table>
@@ -73,7 +79,7 @@ const AllDetails = () => {
                             <td>{val.daysleft}</td>
                             <td>{val.status}</td>
                             <td><button className="action-btn" 
-                                            // onClick={()=>{updateList(list)}}
+                                             onClick={()=>{updateList(list)}}
                                     >
                                                 {val.status}
                                             </button></td>
