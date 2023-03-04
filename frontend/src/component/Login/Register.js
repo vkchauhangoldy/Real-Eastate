@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import "../Login/Register.css";
 const Register = () => {
+    const navigate= useNavigate();
     //const history= useHistory()
     const [inpval, setinpu] = useState({
         email: "",
@@ -31,9 +32,7 @@ const Register = () => {
             alert("provide valid email");
 
         }
-        // else if(password.length<=6 && cpassword<=6){
-        // alert(" Provide password length at least 6")
-        // }
+       
         else if (password != cpassword) {
             alert("password should be same")
         }
@@ -47,18 +46,38 @@ const Register = () => {
                 body: JSON.stringify({
                     email, password, cpassword
                 })
-            });
+            })
             const res = await data.json();
             console.log(res);
-            if(res.status==422|| !res){
-                window.alert("Registration failed");
+
+            if(res.status== 201){
+                alert("Registration succesfully done");
+                setinpu({
+                    ...inpval,
+                    email:"",
+                    password:"",
+                    cpassword:""
+                })
+                navigate("/");
+            }
+            else if(res.status== "already"){
+                alert("User already registered");
+                setinpu({
+                    ...inpval,
+                    email:"",
+                    password:"",
+                    cpassword:""
+                })
             }
             else{
-                window. alert("successfully login user")
-                //  history.push("/reg/login")
+                alert("Registartion failed")
             }
+           
 
+            
         }
+
+        
     }
     return (
         <>
@@ -67,7 +86,7 @@ const Register = () => {
                     <h1 className="heading">LOGO</h1>
                 </div>
                 <p>Create New Account</p>
-                <div className="form_data_signup">
+                <form method="POST" className="form_data_signup">
 
                     <input type="email" onChange={setval} placeholder="Mail ID" name="email" value={inpval.email} />
 
@@ -79,7 +98,7 @@ const Register = () => {
 
 
                     <button onClick={adduserdata} className="btn">Sign up</button>
-                </div>
+                </form>
             </div>
 
             <div>

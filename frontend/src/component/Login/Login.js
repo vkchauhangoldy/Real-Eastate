@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import{AiFillEye,AiFillEyeInvisible} from "react-icons/ai"
-import { NavLink} from "react-router-dom";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"
+import { NavLink, useNavigate } from "react-router-dom";
 import "../Login/login.css"
 const Login = () => {
-    // const history= useHistory()
+    const navigate = useNavigate();
     const [inpval, setinpu] = useState({
         email: "",
         password: ""
     })
+    
     const setval = (e) => {
         //console.log(e.target.value)
         const { name, value } = e.target;
@@ -31,8 +32,8 @@ const Login = () => {
 
         }
         else {
-           
-          const data = await fetch("http://localhost:4000/reg/login", {
+
+            const data = await fetch("http://localhost:4000/reg/login", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -42,8 +43,22 @@ const Login = () => {
                 })
             });
             const res = await data.json();
-            console.log(res);
-           
+             console.log(res);
+            if (res.status == 422 || !res) {
+                window.alert("Registered first");
+             } 
+             else if(res.message=="Login successfully in third page"){
+                window.alert("login succesfully")
+                navigate("/register")//temporary provided
+                setinpu({
+                    email:"",
+                    password:""
+                })
+             }
+             else {
+                window.alert("invalid details")
+               
+            }
 
         }
     }
@@ -57,17 +72,17 @@ const Login = () => {
                 <div className="form_data">
                     <input type="email" onChange={setval} placeholder="User ID" name="email" value={inpval.email} />
                     <input type="password" onChange={setval} placeholder="Password" name="password" value={inpval.password} />
-                    
-                        <button className="btn" onClick={adduserdata}>Sign In</button>
-                    
+
+                    <button className="btn" onClick={adduserdata}>Sign In</button>
+
 
                     <h3><NavLink to="/register" className="sig">Sign Up</NavLink></h3>
                 </div>
-                </div>
+            </div>
             <div>
                 <p className="signup">Don't have an account?<NavLink to="/register">Sign up</NavLink> </p>
             </div>
-            
+
         </>
     )
 
