@@ -1,5 +1,5 @@
 const mongoose= require("mongoose");
-const bcrypt= require("bcrypt");//for hashing to password for security purpose
+const bcrypt= require("bcryptjs");//for hashing to password for security purpose
 const jwt= require("jsonwebtoken")// for token
 const SECRET_KEY="mynameismirdebahadorarbaz10xprojectok"
 
