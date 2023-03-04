@@ -7,27 +7,26 @@ import "./Alldetails.css"
 const AllDetails = () => {
     const[list,updateList]=useState([])
     debugger
-    async function getPropertyList(){
-      fetch("http://localhost:8080/home",{
-            method:"Post",
-            headers: {
-                "content-type": "application/json"
-            }
-        }).then((res)=>{return res.json})
-        .then((data)=>{
-            console.log(data)
-        })
-
-    }
+    
     // getPropertyList()
     useEffect(() => {
-        getPropertyList()
+            fetch('http://localhost:8080/h1/home',{
+                  method:"Post",
+                  headers: {
+                      "Content-Type": "application/json"
+                  }
+              }).then((res)=>{return res.json()})
+              .then((data)=>{
+                  console.log(data)
+              })
+      
+          }
         // updateStatus()
-    },[])
+    ,[])
     const searchHandel = async (event) => {
         // let key = event.target.value
         // if (key) {
-        //     let result = await fetch(`http://localhost:8080/search/${key}`)
+        //     let result = await fetch(`http://localhost:8080/h1/:key/${key}`)
         //     result = await result.json()
         //     updateList(result)
         //     console.log(result)

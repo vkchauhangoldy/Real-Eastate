@@ -10,7 +10,7 @@ const Home=()=>{
     // const token = localStorage.getItem("token")
     // useEffect(() => {
     //     if (!token) {
-    //         navigate("/login")
+    //         navigate("/...")
     //     }
     //     console.log(token)
     // }, [])
