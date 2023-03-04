@@ -1,5 +1,5 @@
+
 const express = require('express');
-// const dotenv = require("dotenv").config();
 
 
 const cors =require('cors');
@@ -18,9 +18,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
-// All routers 
-app.use('/', propRouter)
-// app.use('/', userRouter)
+
 
 
 app.get('/', function (req, res) {
@@ -31,3 +29,6 @@ app.get('/', function (req, res) {
 app.listen(port, () => {
     console.log(`server is running at ${port}`);
 });
+
+
+
