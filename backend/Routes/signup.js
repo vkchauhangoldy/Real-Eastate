@@ -48,20 +48,21 @@ router.post("/login", async (req, res) => {  // url in postman to check 4000/reg
         // first email database second email user data enter mail
         const uservalid = await signuptemplate.findOne({ email: email });
         if (uservalid) {
+            
             const isMatch = await bcrypt.compare(password, uservalid.password);
-
-            token = await uservalid.genrateAuthtoken()
            
-            // res.status(201).json({satus:201, result})
-              console.log(token)
-            //   localStorage.setItem(token);
+             token = await uservalid.genrateAuthtoken()
+           // localStorage.setItem({token:token})
+            
+               console.log(token)
+            
             if (!isMatch) {
                 res.status(422).json({ error: "Invalid email and password" })
             }
             else {
-
+                
                 res.status(201).json({message:"Login successfully in third page"});
-
+               
             }
         } else {
             res.status(422).json("Invalid form");
