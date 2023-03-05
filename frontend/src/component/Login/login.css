@@ -1,16 +1,15 @@
 *{
     margin: 0;
     padding: 0;
-   
     background-color: #E1F9F4;
 }
 .container1{
-    width: 40%;
-     height: 60vh;
+    width: 30%;
+    height: 60vh;
     margin: auto;
     margin-top: 100px;
     background-color: white;
-    border-radius: 2px;
+    border-radius: 3px;
 }
 .heading{
     text-align: center;
@@ -32,8 +31,6 @@ h3{
     
     background-color: white;
 }
-
-
 input{
     border: 1px solid black;
     width: 70%;
@@ -53,7 +50,7 @@ background-color: rgb(105, 105, 239);
 color: white;
 font-size: 15px;
 padding: 15px;
-border-radius: 1px
+border-radius: 3px
 }
 h3{
     text-align: center;
@@ -66,3 +63,4 @@ h3{
 .signup{
     background-color: #E1F9F4;
 }
+

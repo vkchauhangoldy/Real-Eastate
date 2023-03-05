@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"
+
 import { NavLink, useNavigate } from "react-router-dom";
 import "../Login/login.css"
 const Login = () => {
@@ -24,7 +24,7 @@ const Login = () => {
     const adduserdata = async (e) => {
         e.preventDefault();
         const { email, password } = inpval
-        if (email == "" || password == "") {
+        if (email === "" || password === "") {
             alert("please provide valid data");
         }
         else if (!email.includes("@")) {
@@ -44,20 +44,23 @@ const Login = () => {
             });
             const res = await data.json();
              console.log(res);
-            if (res.status == 422 || !res) {
-                window.alert("Registered first");
+            if (res.error==="Invalid email and password") {
+                window.alert("Invalid email and password");
+                
              } 
-             else if(res.message=="Login successfully in third page"){
+             else if(res.message==="Login successfully in third page"){
                 window.alert("login succesfully")
+                //console.log(auth);
                 navigate("/register")//temporary provided
                 setinpu({
                     email:"",
                     password:""
                 })
              }
+             
              else {
-                window.alert("invalid details")
-               
+                window.alert("invalid details Registered first")
+                navigate("/register")
             }
 
         }

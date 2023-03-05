@@ -5,12 +5,12 @@
     background-color: #E1F9F4;
 }
 .container{
-    width: 40%;
+    width: 30%;
      height: 65vh;
     margin: auto;
     margin-top: 100px;
     background-color: white;
-    border-radius: 2px;
+    border-radius: 3px;
 }
 
 h1, p{
@@ -18,8 +18,8 @@ h1, p{
 }
 input{
 width: 80%;
-margin:15px 50px;
-border-radius: 2px;
+margin:8px 50px;
+border-radius: 5px;
 }
 .form_data_signup{
     margin-bottom: 50px;
@@ -32,7 +32,7 @@ button{
     width: 80%;
     margin:15px 50px;
     margin-bottom: 20px;
-    
+    border-radius: 8px;
 } 
 .log{
     background-color: #E1F9F4;
