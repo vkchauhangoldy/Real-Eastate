@@ -18,7 +18,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extend:false}))
 app.use(express.json())
 app.use(express.urlencoded())
-// app.use(cors())
+ app.use(cors())
 
 app.get('/',(req,res)=>{
     res.send('hi')

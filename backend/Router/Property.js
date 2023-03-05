@@ -18,13 +18,14 @@ Router.get("/h",(req,res)=>{
     res.send("router is working")
 })
 // views  dayLeft
-Router.post("/home", async (req, res) => {
+Router.get("/home", async (req, res) => {
     // res.send("home")
-    const { property, contact, area, views, daysleft,status} = req.body;
-    console.log(property);
+    // const { property, contact, area, views, daysleft,status} = req.body;
+    // console.log(property);
     try {
         console.log("it connected")
-        const propertyDetails = await PropertyDetails.create({ property: property, contact: contact, area: area, views: views, daysleft: daysleft ,status:status});
+        //{ property: property, contact: contact, area: area, views: views, daysleft: daysleft ,status:status}
+        const propertyDetails = await PropertyDetails.find();
         res.status(200).json({
             status: "successfully created propertyDetails",
             propertyDetails
@@ -43,15 +44,15 @@ Router.get('/:key', async (req, res) => {
     let result = await PropertyDetails.find(
         {
             "$or": [
-                {contact: {$regex:req.params.key } },
                 {property: {$regex:req.params.key } },
-                {area: {$regex:req.params.key } }
+                {contact: {$regex:req.params.key } },
+                 {area: {$regex:req.params.key } }
             ]
         }
     )
-    res.send(result)
-    console.log(result)
-    console.log(req.params.search)
+     res.send(result)
+    // console.log(result)
+    console.log(req.params.key)
 })
 
 module.exports=Router;
